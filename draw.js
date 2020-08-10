@@ -20,15 +20,31 @@ I.id = "b";
 I.src = "./brush.svg";
 base.append(I);
 
-function start() {
+function start(event) {
+    event.preventDefault();
+    console.log("start");
     painter = true;
 }
 
 function drawing(event) {
+    event.preventDefault();
+    console.log("touch");
     if (painter === true) {
         var ctx = C.getContext("2d");
-        var x = event.offsetX-4;
-        var y = event.offsetY-4;
+
+        if (event.touches != undefined)
+        {
+            var rect = event.target.getBoundingClientRect();
+            var x = event.targetTouches[0].pageX - rect.left;
+            var y = event.targetTouches[0].pageY - rect.top;
+            // var x = event.touches[0].clientX;
+            // var y = event.touches[0].clientY;
+        } else {
+            var x = event.offsetX-4;
+            var y = event.offsetY-4;
+        }
+        console.log(x);
+        console.log(y);
         var s = size/1.1;
         ctx.beginPath();
         if (brush === "roundLine") {
@@ -110,7 +126,8 @@ function drawing(event) {
     }
 }
 
-function nodraw() {
+function nodraw(event) {
+    event.preventDefault();
     painter = false;
 }
 
@@ -136,10 +153,15 @@ function newSquare() {
     C.width = 400;
     C.height = 400;
     C.addEventListener("mousedown", start);
+    C.addEventListener("touchstart", start);
     C.addEventListener("mousedown", drawing);
+    C.addEventListener("touchstart", drawing);
+    C.addEventListener("touchmove", drawing);
     C.addEventListener("mousemove", drawing);
     C.addEventListener("mouseup", nodraw);
     C.addEventListener("mouseleave", nodraw);
+    C.addEventListener("touchend", nodraw);
+    C.addEventListener("touchcancel", nodraw);
     ctx = C.getContext("2d");
     ctx.lineWidth = L.value;
     canvas = document.getElementById("draw");
