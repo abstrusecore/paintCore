@@ -1,0 +1,50 @@
+html {
+    font-size: 14px;
+}
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: white;
+}
+body {
+    background-color: black;
+}
+input {
+    width: 20%;
+    height: auto;
+    margin: auto 2rem;
+}
+select {
+    background-color: black;
+    color: white;
+}
+label {
+    font-size: 1rem;
+}
+img {
+    display: none;
+}
+.slider {
+    margin: 1rem;
+}
+#image {
+    display: block;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+    height: auto;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+#opt {
+    background-color: rgb(122, 130, 240);
+    width: 400px;
+    margin: 30px auto;
+    padding: 1rem;
+    text-align: center;
+}

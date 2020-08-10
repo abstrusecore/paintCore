@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./draw.css">
+    </head>
+<body>
+    <div id="opt">
+        <select id="color" onchange="checkColor(this.value)">
+            <option value="black" selected>Black</option>
+            <option value="gray">Gray</option>
+            <option value="green">Green</option>
+            <option value="olive">Olive</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="turquoise">Turquoise</option>
+            <option value="blue">Blue</option>
+            <option value="navy">Navy Blue</option>
+            <option value="aqua">Aqua</option>
+            <option value="cyan">Cyan</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="gold">Gold</option>
+            <option value="purple">Purple</option>
+            <option value="violet">Violet</option>
+            <option value="indigo">Indigo</option>
+            <option value="magenta">Magenta</option>
+            <option value="pink">Pink</option>
+            <option value="orchid">Orchid</option>
+            <option value="plum">Plum</option>
+            <option value="red">Red</option>
+            <option value="maroon">Maroon</option>
+            <option value="crimson">Crimson</option>
+        </select>
+        <select id="brush" onchange="changeBrush(this.value)">
+            <option value="round" selected>Circle</option>
+            <option value="roundLine">Circle Outline</option>
+            <option value="tri">Triangle</option>
+            <option value="triLine">Triangle Outline</option>
+            <option value="square">Square</option>
+            <option value="squareLine">Square Outline</option>
+        </select>
+
+        <button onmouseup="newSquare()">Erase All</button>
+        
+
+        <div id="brushSlider" class="slider">
+            <label for="bSize">Brush Size</label>
+            <input id="bSize" type="range" onchange="changeSize(this.value)" min="1" max="50" value="10">
+        </div>
+        <div id="lineSlider" class="slider">
+            <label for="lSize">Line Width</label>
+            <input id="lSize" type="range" onchange="changeWidth(this.value)" min="1" max="10" value="2">
+        </div>
+
+    </div>
+
+    <div id="1">
+    </div>
+
+    <button id="image">Download Image</button>
+
+    <script src="./draw.js" type="text/javascript"></script>
+
+</body>
+</html>
